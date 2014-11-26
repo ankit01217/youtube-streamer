@@ -1,8 +1,9 @@
 
 function getListItem(item){
     var thumbnailURL = item.snippet.thumbnails.default.url;
-    var itemHTML = '<li><a href="#" onclick="onItemClick(\''+item.id.videoId+'\')"><img src="'+thumbnailURL+'"><h2>'+item.snippet.title+'</h2><p>'+item.snippet.description+'</p></a></li>';
-    //console.log(itemHTML);
+    //var itemHTML = '<li><a id="video-link" href="#" onclick="onItemClick(\''+item.id.videoId+'\')"><img src="'+thumbnailURL+'"><h2>'+item.snippet.title+'</h2><p>'+item.snippet.description+'</p></a></li>';
+    var itemHTML = '<li><a id="video-link" href="http://youtubeinmp3.com/fetch/?video=https://www.youtube.com/watch?v='+item.id.videoId+'" target="_blank"><img src="'+thumbnailURL+'"><h2>'+item.snippet.title+'</h2><p>'+item.snippet.description+'</p></a></li>';
+    
     return itemHTML;
 }
 
@@ -47,26 +48,4 @@ $(document).on('keydown', '#search-1', function(event) {
 
 });
 
-
-/*
-function stopVideo() {
-    //player.stopVideo();
-}
-
-function playVideo(id){
-    $('#ytplayer').attr('src','https://www.youtube.com/embed/'+id+'?autoplay=1');
-    //player.videoId = id;
-    //player.playVideo();
-
-}
-
-
-$( window ).on( "navigate",function( event, data ){
-    if ( data.state.direction == "back" ) {
-        // Make use of the directional information
-        stopVideo();
-        $.mobile.changePage("#home");
-
-    }
-});*/
 

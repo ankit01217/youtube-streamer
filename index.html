@@ -5,31 +5,29 @@
 <head>
 <meta charset="utf-8">
 
-<title>Youtube Streamer</title>
+<title>y2mp3 downloader</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
 
-<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<!--<script type="text/javascript" src="http://www.google.com/jsapi"></script>-->
 <script type="text/javascript" src="js/home.js"></script>
-<script type="text/javascript" src="http://apis.google.com/js/client.js?onload=onJSClientLoad"></script>
-
-<script src="http://www.youtubemp3script.com/api/youtubemp3script-v1.js"></script>
+<!--<script type="text/javascript" src="http://apis.google.com/js/client.js?onload=onJSClientLoad"></script>-->
 <link rel="stylesheet" href="css/style.css" />
 
 </head>
 
 
 <body>
-	<div data-role="page" id="home" class="ui-page ui-page-theme-b ui-page-active">
+	<div data-role="page" id="home" class="ui-page ui-page-theme-a ui-page-active">
 
         <div data-role="header">
             
         </div>
         <form id = 'search-form'>
-             <label for="search-1">Search:</label>
+             <label for="search-1">Search Youtube Videos:</label>
              <input type="search" name="search-1" id="search-1" value="" onsearch='searchHandler();'>
         </form>
         <div role="main" class="ui-content">
@@ -54,7 +52,7 @@
 
             <a href="#" id="download-mp3" data-role="button" data-theme="a" data-inline="true">Download MP3</a>
             <!--<button onclick="fun();">Download MP3</button>-->
-
+               
             <script>
                 // 2. This code loads the IFrame Player API code asynchronously.
                 var tag = document.createElement('script');
@@ -68,8 +66,8 @@
                 var player;
                 function onYouTubeIframeAPIReady() {
                     player = new YT.Player('player', {
-                        height: '390',
-                        width: '640',
+                        height: $( window ).height()*0.9,
+                        width: $( window ).width()*0.6,
                         videoId: sessionStorage.videoId,
                         events: {
                             'onReady': onPlayerReady,
@@ -98,21 +96,7 @@
 
                 function playVideo(){
                     $("#download-mp3").attr('href',"http://youtubeinmp3.com/fetch/?video=https://www.youtube.com/watch?v="+sessionStorage.videoId);
-                    /*
-                    $("#download-mp3").click(function(){
-
-                        $.ajax({url: "/download.php",type: "POST", data: {"videoId": sessionStorage.videoId,
-                                    success: function(output) {
-                                        alert(output);
-                                    }
-
-                        }}
-
-                        );
-
-                    });
-                     */
-
+                 
                     player.seekTo(0);
                     player.stopVideo();
                     player.loadVideoById(sessionStorage.videoId, 0, "small")
@@ -128,7 +112,8 @@
                     }
                 });
 
-
+                
+                
 
             </script>
 
