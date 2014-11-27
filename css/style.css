@@ -1,3 +1,16 @@
 .ui-filter-inset {
     margin-top: 0;
 }
+
+.thumbImg img {
+    bottom: 0; left: 0;
+    top: 0; right: 0;
+    margin: auto;
+    position: absolute;
+    max-width: 80px;
+    max-height: 80px;
+}
+
+iframe {
+    border: none;
+}
